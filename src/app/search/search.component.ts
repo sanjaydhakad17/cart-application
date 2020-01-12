@@ -9,7 +9,8 @@ import { SharedDataService } from '../shared-data.service';
 export class SearchComponent implements OnInit {
 
   public shopData: any;
-  isSearchEnable: boolean = false;
+  public isSearchEnable: boolean = false;
+  public searchText: string;
   constructor(private shareDataService: SharedDataService) { }
 
   ngOnInit() {
