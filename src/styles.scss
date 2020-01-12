@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+body {
+    background: #F1F3F6;
+    .bg-primary-blue {
+        background: #4269EA;
+    }
+    .modal-content {
+        transform: translateY(-70%);
+        border-radius: 0px;
+        margin: 40px;
+        .modal-header {
+            padding-top:10px;
+            padding-bottom: 10px;
+            .modal-title {
+                font-size: 18px;
+                font-weight: 700;
+            }
+        }
+        .modal-body {
+            padding-top:0px;
+            padding-bottom: 0px;
+            ul.custom-control {
+                padding:0px 10px;
+                li {
+                    padding-top:5px;
+                    padding-bottom: 5px; 
+                }
+            }
+            .price {
+                font-weight: 500;
+                color: #A5A5A5;
+             }
+        }
+        .modal-footer {
+            padding:0px;
+            .modal-btn {
+                margin: 0px;
+                text-align: center;
+                padding: 7px;
+                color: #587BEC;
+                font-weight: 700;
+                a:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .ng5-slider  {
+        .ng5-slider-pointer {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            top: -10px;
+            background-color: #0db9f0;
+            z-index: 3;
+            border-radius: 16px;
+            background: #ffffff;
+            border:2px solid #C0C0C0;
+
+            &:after {
+                display: none;
+            }
+        }
+       
+    }
+   
+}
+

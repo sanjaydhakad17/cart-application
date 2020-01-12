@@ -1,0 +1,33 @@
+$white-color: #ffffff;
+.search-wrapper {
+    position: relative;
+    .search-field {
+        position: relative;
+        top: 10px;
+        border: none;
+        border-bottom: 1px solid $white-color;
+        color:$white-color;
+    }
+    .search-icon {
+        position: absolute;
+        right:0px;
+        top:0px;
+        cursor: pointer;
+        color:$white-color;
+    }
+    input:focus {
+        outline: none;
+    }
+    ::placeholder { 
+        color: $white-color;
+    
+    }
+    :-ms-input-placeholder { 
+        color: $white-color;
+    
+    }
+    ::-ms-input-placeholder { 
+        color: $white-color;
+    
+    }
+}

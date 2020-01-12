@@ -1,0 +1,33 @@
+.sorting-main-wrapper {
+    .list-inline, .list-inline-item {
+        color:#909090;
+        .sorting-option {
+            font-weight: 600;
+            &:hover {
+                cursor: pointer;
+                color:#708DEE
+            }
+            &.active {
+                color: #007bff;
+                padding-bottom: 3px;
+                border-bottom: 2px solid;
+            }
+        }
+    }
+    .sort-option {
+        border-right: 1px solid #dee2e6;
+        text-align: right;
+        padding:10px 30px;
+       .fa-sort {
+            font-size: 24px;
+            vertical-align: middle;
+        } 
+        span {
+            font-weight: 600;
+            padding-left: 5px;
+            vertical-align: middle;
+        }
+    }
+    
+}
+

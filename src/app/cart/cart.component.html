@@ -1,0 +1,92 @@
+<div *ngIf="this.items.length" class="row cart-wrapper m-0">
+    <div class="col-sm-8 p-0">
+        <div class="cart-item-wrapper" *ngFor="let item of items">
+            <div class="row card flex-row flex-wrap">
+                <div class="col-5 col-sm-2 card-header border-0">
+                    <img class="img-fluid" src="{{item.img_url}}" alt="">
+                </div>
+                <div class="col-7 col-sm-10 card-body">
+                    <h4 class="card-title"><span>{{ item.name }}</span></h4>
+                    <div class="row">
+                        <div class="col col-sm-4 price-wrapper">
+                            <span class="final-price">
+                                {{ (item.price - (item.price * item.discount ) / 100 ) * item.count | currency: 'INR':true:'2.0' }}
+                            </span>
+                            <span class="actual-price">
+                                {{item.price}}
+                            </span>
+                            <span class="discount text-success font-weight-bold">
+                                {{item.discount}}% off
+                            </span>
+
+                        </div>
+                        <div class="col-sm-4  quantity-wrapper">
+                            <a class="remove-item-quantity" (click)="removeItemQuantity(item);"><i
+                                    class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                            <input type="text" class="item-count" [(ngModel)]="item.count">
+                            <a class="add-item-quantity" (click)="addItemQuantity(item);"><i class="fa fa-plus-circle"
+                                    aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-4 mt-1  remove-cart-item ">
+                            <a class="" (click)="removeCartItem(item)">Remove</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-100"></div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-4 cart-item-wrapper total-wrapper p-0">
+        <div class="card ">
+            <div class="card-header">Price Details</div>
+            <div class="card-body" *ngFor="let item of items">
+                <div class="row">
+                    <div class="col-6">
+                        <p>Price ( {{item.count}} item ) </p>
+                    </div>
+                    <div class="col-2">:</div>
+                    <div class="col-4 text-center">
+                        <p> {{item.price * item.count | currency: 'INR':true:'2.0' }} </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Discount :</p>
+                    </div>
+                    <div class="col-2">:</div>
+                    <div class="col-4 text-center">
+                        <p> {{ (( item.price * item.discount ) / 100 ) * item.count | currency: 'INR':true:'2.0' }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-6">
+                        <p>Total Payable </p>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-4 text-center">
+                        <p>{{total() | currency: 'INR':true:'2.0' }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100"></div>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="this.items.length == 0" class="cart-wrapper fallback-wrapper">
+    <div class="cart-item-wrapper total-wrapper">
+        <div class="card ">
+            <div class="card-body text-center">
+                You do not have any iten in the cart. click <a routerLink="/" routerLinkActive="active">here</a> to add
+                one.
+            </div>
+
+            <div class="w-100"></div>
+        </div>
+    </div>
+</div>

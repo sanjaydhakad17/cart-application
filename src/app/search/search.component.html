@@ -1,0 +1,8 @@
+<div class="search-wrapper">
+        <input *ngIf="isSearchEnable" class="bg-primary-blue search-field" type="text" name="search" [(ngModel)]="searchText" 
+        autocomplete="off" placeholder="Search" autofocus #searchTerm (keyup)="searchItem(searchTerm)">
+        <a class="nav-link float-right search-icon">
+            <i class="fa fa-search" aria-hidden="true" (click)="toggleSearch()"></i>
+        </a>
+</div>
+

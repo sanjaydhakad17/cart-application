@@ -1,0 +1,103 @@
+<div class="main-wrapper d-none d-sm-block ">
+    <div class="desktop">
+        <div class="row m-0">
+            <div class="col-sm-3 border-right border-bottom">
+                <div class="col mt-4 text-center">
+                    <app-filter></app-filter>
+                </div>
+            </div>
+            <div class="col-sm-9 p-0">
+                <div class="col-sm-12 mt-4 text-center">
+                    <app-sort></app-sort>
+                </div>
+                <div class="col-sm-12 p-0">
+                    <div class="col border-bottom shopping-list-view">
+                        <div class="shopping-list-wrapper row m-0">
+
+                            <div class="shopping-list-card" *ngFor="let list of shoppingList">
+                                <div class="">
+
+                                    <img class="card-img" src="{{list.img_url}}" alt="Card image cap">
+                                    <div class="">
+                                        <p class="">{{list.name}}</p>
+
+                                        <div class="row">
+                                            <div class="col price-wrapper pr-0">
+                                                <span class="final-price">
+                                                    {{ (list.price - (list.price * list.discount ) / 100 ) | currency: 'INR':true:'2.0' }}
+                                                </span>
+                                                <span class="actual-price pl-2">
+                                                    {{list.price}}
+                                                </span>
+                                            </div>
+                                            <div class="col p-0">
+                                                <span class="discount text-success font-weight-bold">
+                                                    {{list.discount}}% off
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart-btn-wrapper">
+                                            <button (click)="addToCart(list)" class="btn add-to-cart-btn btn-sm">Add to
+                                                Cart</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-wrapper d-block d-sm-none">
+    <div class="mobile">
+        <div class="col-12  border-bottom view-list-option">
+            <div class="row m-0">
+                <div class="col p-0">
+                    <app-sort></app-sort>
+                </div>
+                <div class="col p-0">
+                    <app-filter></app-filter>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 p-0 border-bottom shopping-list-view">
+            <div class="shopping-list-wrapper row m-0">
+
+                <div class="col-6 col-sm-2 shopping-list-card" *ngFor="let list of shoppingList">
+                    <div class="">
+
+                        <img class="card-img" src="{{list.img_url}}" alt="Card image cap">
+
+                        <p class="item-name">{{list.name}}</p>
+
+                        <div class="row">
+                            <div class="col price-wrapper pr-0">
+                                <span class="final-price">
+                                    {{ (list.price - (list.price * list.discount ) / 100 ) | currency: 'INR':true:'2.0' }}
+                                </span>
+                                <span class="actual-price pl-2">
+                                    {{list.price}}
+                                </span>
+                            </div>
+                            <div class="col p-0">
+                                <span class="discount text-success font-weight-bold">
+                                    {{list.discount}}% off
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="add-to-cart-btn-wrapper">
+                            <button (click)="addToCart(list)" class="btn add-to-cart-btn btn-sm">Add to Cart</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

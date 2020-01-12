@@ -1,0 +1,57 @@
+<div class="sorting-main-wrapper">
+    <div class="d-block d-sm-none sort-option">
+        <a class="" (click)="openModal(template)">
+            <i class="fa fa-sort"></i>
+            <span>Sort</span></a>
+
+        <ng-template #template>
+            <div class="modal-header border-0">
+                <h4 class="modal-title pull-left">Sort Option</h4>
+            </div>
+            <div class="modal-body">
+                <div class="text-left">
+                    <div>
+                        <ul class="custom-control custom-radio">
+                            <li class="list-group-item border-0" *ngFor="let item of itemsList">
+                                <input type="radio" class="custom-control-input" id="{{item.value}}"
+                                    [(ngModel)]="defualtSelectedItem" #list_name name="list_name" value="{{item.value}}"
+                                    (change)="onItemChange(item)" />
+                                <label class="custom-control-label" for="{{item.value}}">{{item.name}}</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <div class="col modal-btn border-right">
+                    <div class="">
+                        <a (click)="modalRef.hide()" aria-label="Close"> <span aria-hidden="true">Cancel</span></a>
+                    </div>
+                </div>
+                <div class="col modal-btn">
+                        <a aria-label="Apply" (click)="sortByOptions(selectedItem)">
+                                <span aria-hidden="true">Apply</span>
+                        </a>
+                </div>
+            </div>
+
+        </ng-template>
+    </div>
+    <div class="d-none d-sm-block desktop">
+        <div class="row">
+            <div class="col-2 ">
+                <h5 class="text-left">Sort By</h5>
+            </div>
+            <div class="col-10">
+                <ul class="list-inline text-left" >
+                    <li class="list-inline-item pr-5" *ngFor="let item of itemsList">
+                        <a class="sorting-option" [ngClass]="{'active': selectedItemVal == item.value}" (click)="sortByOptions(item.value)" > {{item.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

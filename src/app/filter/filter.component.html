@@ -1,0 +1,49 @@
+<div class="filter-main-wrapper">
+    <div class="d-block d-sm-none filter-option">
+        <a class="" (click)="openModal(template)">
+            <i class="fa fa-filter"></i>
+            <span>Filter</span></a>
+        <ng-template #template>
+            <div class="modal-header border-0">
+                <h4 class="modal-title pull-left">Filter Option</h4>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mt-3 mb-5">
+                    <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                    <span class="text-center price">Price</span>
+                    <input type="hidden" [(ngModel)]="minValue">
+                    <input type="hidden" [(ngModel)]="maxValue">
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <div class="col modal-btn border-right">
+                    <div class="">
+                        <a (click)="modalRef.hide()" aria-label="Close"> <span aria-hidden="true">Cancel</span></a>
+                    </div>
+                </div>
+                <div class="col modal-btn">
+                    <a aria-label="Apply" (click)="applyFilter(true)">
+                        <span aria-hidden="true">Apply</span>
+                    </a>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+    <div class="d-none d-sm-block">
+        <h5 class="text-left">Filters</h5>
+        <div class="text-center mt-4">
+            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+            <input type="hidden" [(ngModel)]="minValue">
+            <input type="hidden" [(ngModel)]="maxValue">
+            <span class="text-center">Price</span>
+        </div>
+        <div class="col mt-3">
+            <button type="button" class="btn bg-primary-blue btn-sm filter-btn" aria-label="Apply"
+                (click)="applyFilter(false)">
+                <span aria-hidden="true">Apply</span>
+            </button>
+        </div>
+    </div>
+</div>

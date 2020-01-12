@@ -1,0 +1,27 @@
+//.header-wrapper {
+    .navbar-nav {
+        flex-direction: row;
+        background: #4269EA;
+        .nav-item {
+            padding:0 10px;
+            position: relative;
+            .fa {
+                color:white;
+            }
+        }
+        .cart-basket {
+            position: absolute;
+            background: red;
+            border-radius: 50%;
+            color: white;
+            width: 18px;
+            top: 0px;
+            right: 0;
+        }
+       
+    }
+    .navbar-brand {
+        color: #F4CD21;
+    }
+    
+//}
